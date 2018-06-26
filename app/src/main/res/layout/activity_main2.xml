@@ -1,57 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Main2Activity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="300dp">
 
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="30dp"
-            android:gravity="center"
-            android:textSize="20dp"
-            android:text="환영합니다."/>
+            android:layout_height="500dp"
+            android:id="@+id/main_frame">
 
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center">
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="60dp"
-            android:layout_marginRight="20dp"
-            android:id="@+id/bt_1"
-            android:text="bt1" />
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="60dp"
-            android:layout_marginRight="20dp"
-            android:id="@+id/bt_2"
-            android:text="bt2"/>
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="60dp"
-            android:id="@+id/bt_3"
-            android:text="bt3"/>
 
-    </LinearLayout>
+        </FrameLayout>
+
+        <android.support.design.widget.BottomNavigationView
+            android:id="@+id/bottom_navigation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            app:layout_behavior="tech.thdev.app.view.BottomNavigationBehavior"
+            app:menu="@menu/menu" />
 
 
 
-
-
-</LinearLayout>
+</RelativeLayout>
