@@ -26,34 +26,30 @@ public class Main2Activity extends AppCompatActivity {
 
         frameLayout = (FrameLayout)findViewById(R.id.main_frame);
         bottomNavigationView = (BottomNavigationView)findViewById(R.id.bottom_navigation);
-        bottomNavigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         getFragmentManager().beginTransaction().replace(R.id.main_frame, new Fragment1()).commit();
-    }
-
-    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
-            = new BottomNavigationView.OnNavigationItemSelectedListener() {
-
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
-        @Override
-        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            Fragment selectedfragment = null;
-            switch (item.getItemId()) {
-                case R.id.action_one:
-                    selectedfragment = new Fragment1();
-                    break;
-                case R.id.action_two:
-                    selectedfragment = new Fragment2();
-                    break;
-                case R.id.action_three:
-                    selectedfragment = new Fragment3();
-                    break;
-                case R.id.action_four:
-                    selectedfragment = new Fragment4();
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                Fragment selectedfragment = null;
+                switch (item.getItemId()) {
+                    case R.id.action_one:
+                        selectedfragment = new Fragment1();
+                        break;
+                    case R.id.action_two:
+                        selectedfragment = new Fragment2();
+                        break;
+                    case R.id.action_three:
+                        selectedfragment = new Fragment3();
+                        break;
+                    case R.id.action_four:
+                        selectedfragment = new Fragment4();
+                }
+                getFragmentManager().beginTransaction().replace(R.id.main_frame,selectedfragment).commit();
+                return true;
             }
-            getFragmentManager().beginTransaction().replace(R.id.main_frame,selectedfragment).commit();
-            return true;
-        }
-    };
+        });
+    }
 }

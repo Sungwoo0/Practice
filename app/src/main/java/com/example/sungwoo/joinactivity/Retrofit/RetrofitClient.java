@@ -11,7 +11,7 @@ public class RetrofitClient {
 
     private RetrofitClient(){};
 
-    Retrofit retrofit = new Retrofit.Builder().baseUrl("https://api.upbit.com/v1/market/").addConverterFactory(GsonConverterFactory.create()).build();
+    Retrofit retrofit = new Retrofit.Builder().baseUrl("https://api.upbit.com/v1/").addConverterFactory(GsonConverterFactory.create()).build();
 
     RetrofitService service = retrofit.create(RetrofitService.class);
 
