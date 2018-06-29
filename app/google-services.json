@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "396770457000",
+    "firebase_url": "https://sungwoo-1a54f.firebaseio.com",
+    "project_id": "sungwoo-1a54f",
+    "storage_bucket": "sungwoo-1a54f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:396770457000:android:3bc511f72cc2287e",
+        "android_client_info": {
+          "package_name": "com.example.sungwoo.joinactivity"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "396770457000-bcmiivrcjsjolnkbrt16dk49vk2g4a2t.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.sungwoo.joinactivity",
+            "certificate_hash": "c5301594313dec69962ff86800ae9b3a3e1d3df9"
+          }
+        },
+        {
+          "client_id": "396770457000-7uojfus0usikphhl7d2kar2lll2epv44.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBDwp59VMb_G28H2A2Ep2Xzu88C_Q7DYXk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "396770457000-7uojfus0usikphhl7d2kar2lll2epv44.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
