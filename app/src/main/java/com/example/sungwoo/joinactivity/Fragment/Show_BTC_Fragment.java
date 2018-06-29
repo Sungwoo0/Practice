@@ -9,13 +9,11 @@ import android.view.ViewGroup;
 
 import com.example.sungwoo.joinactivity.R;
 
-public class Fragment4 extends Fragment{
-
+public class Show_BTC_Fragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment4_layout,container,false);
-
+        View view = inflater.inflate(R.layout.btc_fragment_layout,container,false);
         return view;
     }
 }
