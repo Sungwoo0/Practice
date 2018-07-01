@@ -39,11 +39,9 @@ public class Show_KRW_Fragment extends Fragment {
             @Override
             public void onResponse(Call<ArrayList<CoinData>> call, Response<ArrayList<CoinData>> response) {
                 if(response != null){
-                    for(int i =0 ; i < 271 ; i++) {
+                    for(int i =0 ; i < response.body().size() ; i++) {
                         Log.e("coinlist->", "" + response.body().get(i).getKorean_name().toString() + "," + response.body().get(i).getMarket().toString());
                         coinlist.add(response.body().get(i).getMarket());
-
-                        Log.e("coinlist2 ->", "" + coinlist.get(0));
                         getCoinDetails(i);
                     }
 
@@ -67,7 +65,20 @@ public class Show_KRW_Fragment extends Fragment {
             @Override
             public void onResponse(Call<ArrayList<CoinDetail>> call, Response<ArrayList<CoinDetail>> response) {
                 if (response != null) {
-                    listviewAdapter.addItem(response.body().get(0).getMarket(), response.body().get(0).getTrade_price(), response.body().get(0).getChange_rate(),response.body().get(0).getAcc_trade_price_24h());
+                    double change_rate;
+                    change_rate = response.body().get(0).getChange_rate() * 100;
+                    double change_rate2 = Double.parseDouble(String.format("%.2f",change_rate));
+
+                    double trade_price;
+                    trade_price = response.body().get(0).getAcc_trade_price_24h();
+                    double trade_price2 = Double.parseDouble(String.format("%.2f",trade_price));
+
+                    Log.e("trade price 24h@@",""+response.body().get(0).getAcc_trade_price_24h());
+                    Log.e("trade price->",""+response.body().get(0).getTrade_price());
+
+                    listviewAdapter.addItem(response.body().get(0).getMarket(), response.body().get(0).getTrade_price(),
+                            change_rate2, Math.round(response.body().get(0).getAcc_trade_price_24h())
+                    );
                     listviewAdapter.notifyDataSetChanged();
                 } else {
                     Log.e("onResponse error", "null");

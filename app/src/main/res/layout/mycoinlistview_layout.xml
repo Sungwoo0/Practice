@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:orientation="horizontal">
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="15dp"
+            android:id="@+id/mycoin_imageview"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/mycoin_name"
+            android:textSize="15sp"
+            android:layout_marginRight="7dp"
+            android:layout_gravity="center"
+            android:text="원화"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:layout_gravity="center"
+            android:textSize="10sp"
+            android:id="@+id/english_coinname"
+            android:text="coinname"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0.0"
+            android:layout_weight="1.2"
+            android:id="@+id/mycoin_assets"
+            android:textSize="15sp"
+            android:textColor="#000000"
+            android:layout_gravity="center"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=">"
+            android:textColor="#8b8787"
+            android:layout_gravity="center"
+            android:textSize="25sp"
+            android:layout_marginRight="10dp"
+            />
+
+
+
+    </LinearLayout>
+
+</LinearLayout>

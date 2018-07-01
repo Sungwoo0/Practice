@@ -22,7 +22,7 @@ public class ListviewAdapter extends BaseAdapter {
 
     @Override
     public Object getItem(int position) {
-        return null;
+        return listview_item_list.get(position);
     }
 
     @Override
@@ -67,4 +67,5 @@ public class ListviewAdapter extends BaseAdapter {
 
         listview_item_list.add(item);
     }
+
 }

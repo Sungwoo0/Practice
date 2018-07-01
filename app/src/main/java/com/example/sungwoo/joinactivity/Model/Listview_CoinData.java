@@ -7,7 +7,6 @@ public class Listview_CoinData {
     private double coin_transaction_value;
 
     public Listview_CoinData(){
-
     }
 
     public Listview_CoinData(String coin_name, int coin_currentprice, double coin_change, double coin_transaction_value) {
