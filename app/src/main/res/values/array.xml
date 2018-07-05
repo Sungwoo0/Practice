@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="check">
+        <item >거래 전체</item>
+        <item >매도</item>
+        <item >매수</item>
+        <item >입금</item>
+        <item >출금</item>
+    </string-array>
+</resources>

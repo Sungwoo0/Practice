@@ -1,7 +1,7 @@
 package com.example.sungwoo.joinactivity.Model;
 
 public class CoinDetail {
-    private int trade_price;
+    private double trade_price;
     private String change;
     //거래대
     private double acc_trade_price_24h;
@@ -9,7 +9,7 @@ public class CoinDetail {
     private double change_rate;
     private String market;
 
-    public CoinDetail(int trade_price, String change, double acc_trade_price_24h, double change_rate, String market) {
+    public CoinDetail(double trade_price, String change, double acc_trade_price_24h, double change_rate, String market) {
         this.trade_price = trade_price;
         this.change = change;
         this.acc_trade_price_24h = acc_trade_price_24h;
@@ -17,11 +17,11 @@ public class CoinDetail {
         this.market = market;
     }
 
-    public int getTrade_price() {
+    public double getTrade_price() {
         return trade_price;
     }
 
-    public void setTrade_price(int trade_price) {
+    public void setTrade_price(double trade_price) {
         this.trade_price = trade_price;
     }
 

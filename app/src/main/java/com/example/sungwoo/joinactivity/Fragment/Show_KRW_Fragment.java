@@ -1,8 +1,8 @@
 package com.example.sungwoo.joinactivity.Fragment;
 
-import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +15,7 @@ import com.example.sungwoo.joinactivity.Model.CoinDetail;
 import com.example.sungwoo.joinactivity.R;
 import com.example.sungwoo.joinactivity.Retrofit.RetrofitClient;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 
 import retrofit2.Call;
@@ -24,7 +25,7 @@ import retrofit2.Response;
 public class Show_KRW_Fragment extends Fragment {
     ListView listView;
     ListviewAdapter listviewAdapter;
-    public static ArrayList<String> coinlist;
+    public static ArrayList<String> coinlist_krw;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
@@ -32,7 +33,7 @@ public class Show_KRW_Fragment extends Fragment {
         listView = (ListView)view.findViewById(R.id.krw_listview);
         listviewAdapter = new ListviewAdapter();
         listView.setAdapter(listviewAdapter);
-        coinlist = new ArrayList<>();
+        coinlist_krw = new ArrayList<>();
 
         Call<ArrayList<CoinData>> rep = RetrofitClient.getInstance().getService().getListCoin();
         rep.enqueue(new Callback<ArrayList<CoinData>>() {
@@ -40,11 +41,9 @@ public class Show_KRW_Fragment extends Fragment {
             public void onResponse(Call<ArrayList<CoinData>> call, Response<ArrayList<CoinData>> response) {
                 if(response != null){
                     for(int i =0 ; i < response.body().size() ; i++) {
-                        Log.e("coinlist->", "" + response.body().get(i).getKorean_name().toString() + "," + response.body().get(i).getMarket().toString());
-                        coinlist.add(response.body().get(i).getMarket());
+                        coinlist_krw.add(response.body().get(i).getMarket());
                         getCoinDetails(i);
                     }
-
                 }else{
                     Log.e("onresponse null","dd");
                 }
@@ -54,13 +53,11 @@ public class Show_KRW_Fragment extends Fragment {
                 Log.e("onfailure called->",""+t.toString());
             }
         });
-
         return view;
     }
 
     public void getCoinDetails(int a){
-
-        Call<ArrayList<CoinDetail>> rep2 = RetrofitClient.getInstance().getService().getdetailCoin(coinlist.get(a));
+        Call<ArrayList<CoinDetail>> rep2 = RetrofitClient.getInstance().getService().getdetailCoin(coinlist_krw.get(a));
         rep2.enqueue(new Callback<ArrayList<CoinDetail>>() {
             @Override
             public void onResponse(Call<ArrayList<CoinDetail>> call, Response<ArrayList<CoinDetail>> response) {
@@ -71,25 +68,30 @@ public class Show_KRW_Fragment extends Fragment {
 
                     double trade_price;
                     trade_price = response.body().get(0).getAcc_trade_price_24h();
-                    double trade_price2 = Double.parseDouble(String.format("%.2f",trade_price));
+                    BigDecimal trade_price2 = new BigDecimal(trade_price);
+                    double trade_price3 = trade_price2.doubleValue();
+                    long trade_price4 = Math.round(trade_price3);
 
-                    Log.e("trade price 24h@@",""+response.body().get(0).getAcc_trade_price_24h());
-                    Log.e("trade price->",""+response.body().get(0).getTrade_price());
+                    if(getCoinMarket(response.body().get(0).getMarket()).equals("KRW")){
+                        listviewAdapter.addItem(response.body().get(0).getMarket(), response.body().get(0).getTrade_price(),
+                                change_rate2, trade_price4);
+                        listviewAdapter.notifyDataSetChanged();
+                    }
 
-                    listviewAdapter.addItem(response.body().get(0).getMarket(), response.body().get(0).getTrade_price(),
-                            change_rate2, Math.round(response.body().get(0).getAcc_trade_price_24h())
-                    );
-                    listviewAdapter.notifyDataSetChanged();
                 } else {
                     Log.e("onResponse error", "null");
                 }
             }
-
             @Override
             public void onFailure(Call<ArrayList<CoinDetail>> call, Throwable t) {
                 Log.e("onFailure Called", "" + t.toString());
             }
         });
+    }
 
+    public String getCoinMarket(String market){
+        int index = market.indexOf("-");
+        String market2 = market.substring(0,index);
+        return market2;
     }
 }

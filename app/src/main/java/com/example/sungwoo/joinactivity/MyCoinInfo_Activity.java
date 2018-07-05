@@ -23,7 +23,7 @@ public class MyCoinInfo_Activity extends AppCompatActivity {
         textView_coinname3 = (TextView)findViewById(R.id.coinname_textview3);
         textView_coinname4 = (TextView)findViewById(R.id.coinname_textview4);
 
-        Intent intent = getIntent(); // 보내온 Intent를 얻는다
+        Intent intent = getIntent();
         textView_cointitle.setText(intent.getStringExtra("coinname")+"입출금");
         textView_coinname1.setText(intent.getStringExtra("coinname"));
         textView_coinname2.setText(intent.getStringExtra("coinname"));

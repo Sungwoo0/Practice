@@ -1,10 +1,11 @@
 package com.example.sungwoo.joinactivity.Fragment;
 
-import android.app.Fragment;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v7.widget.SearchView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,6 +28,8 @@ public class Fragment1 extends Fragment {
     Button show_eth_btn;
     Button show_usdt_btn;
 
+    SearchView searchView;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
@@ -34,6 +37,8 @@ public class Fragment1 extends Fragment {
 
         frameLayout = (FrameLayout)view.findViewById(R.id.framelayout_listview);
         coinlist = new ArrayList<>();
+
+        searchView = (SearchView)view.findViewById(R.id.searchbar_coinlist);
 
         show_krw_btn = (Button)view.findViewById(R.id.fragment_btn1);
         show_btc_btn = (Button)view.findViewById(R.id.fragment_btn2);

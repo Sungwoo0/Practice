@@ -1,11 +1,11 @@
 package com.example.sungwoo.joinactivity;
 
-import android.app.Fragment;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
@@ -26,8 +26,8 @@ public class Main2Activity extends AppCompatActivity {
 
         frameLayout = (FrameLayout)findViewById(R.id.main_frame);
         bottomNavigationView = (BottomNavigationView)findViewById(R.id.bottom_navigation);
-        getFragmentManager().beginTransaction().replace(R.id.main_frame, new Fragment1()).commit();
-        FragmentManager fragmentManager = getFragmentManager();
+        getSupportFragmentManager().beginTransaction().replace(R.id.main_frame, new Fragment1()).commit();
+        FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -47,7 +47,7 @@ public class Main2Activity extends AppCompatActivity {
                     case R.id.action_four:
                         selectedfragment = new Fragment4();
                 }
-                getFragmentManager().beginTransaction().replace(R.id.main_frame,selectedfragment).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.main_frame, selectedfragment).commit();
                 return true;
             }
         });

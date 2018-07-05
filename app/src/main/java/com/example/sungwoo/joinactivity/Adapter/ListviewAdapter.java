@@ -14,6 +14,11 @@ import java.util.ArrayList;
 
 public class ListviewAdapter extends BaseAdapter {
 
+    TextView coinname;
+    TextView coinprice;
+    TextView coinincrement;
+    TextView cointradingvalue;
+
     ArrayList<Listview_CoinData> listview_item_list = new ArrayList<>();
     @Override
     public int getCount() {
@@ -41,10 +46,10 @@ public class ListviewAdapter extends BaseAdapter {
             convertView = layoutInflater.inflate(R.layout.customlistview_layout, parent,false);
         }
 
-        TextView coinname = (TextView)convertView.findViewById(R.id.coinname);
-        TextView coinprice = (TextView)convertView.findViewById(R.id.coinprice);
-        TextView coinincrement = (TextView)convertView.findViewById(R.id.coinincrement);
-        TextView cointradingvalue = (TextView)convertView.findViewById(R.id.cointradingvalue);
+        coinname = (TextView)convertView.findViewById(R.id.coinname);
+        coinprice = (TextView)convertView.findViewById(R.id.coinprice);
+        coinincrement = (TextView)convertView.findViewById(R.id.coinincrement);
+        cointradingvalue = (TextView)convertView.findViewById(R.id.cointradingvalue);
 
         Listview_CoinData listview_coinData = listview_item_list.get(position);
 
@@ -57,7 +62,7 @@ public class ListviewAdapter extends BaseAdapter {
         return convertView;
     }
 
-    public void addItem(String name, int price, double increment, double tradingvalue) {
+    public void addItem(String name, double price, double increment, double tradingvalue) {
         Listview_CoinData item = new Listview_CoinData();
 
         item.setCoin_name(name);
