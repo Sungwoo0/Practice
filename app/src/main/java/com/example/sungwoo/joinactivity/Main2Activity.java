@@ -19,10 +19,14 @@ public class Main2Activity extends AppCompatActivity {
 
     FrameLayout frameLayout;
     BottomNavigationView bottomNavigationView;
+    GlobalApplication globalApplication;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+
+        globalApplication =  new GlobalApplication();
+        globalApplication.setCurrentActivity(this);
 
         frameLayout = (FrameLayout)findViewById(R.id.main_frame);
         bottomNavigationView = (BottomNavigationView)findViewById(R.id.bottom_navigation);

@@ -10,13 +10,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="빝코"
-            android:textSize="50dp"
-            android:gravity="center"/>
     </LinearLayout>
 
 
@@ -34,7 +27,7 @@
                 android:layout_height="match_parent"
                 android:text="계정  :"
                 android:gravity="center"
-                android:textSize="20dp"
+                android:textSize="15dp"
                 android:layout_marginLeft="20dp"/>
             <EditText
                 android:layout_width="match_parent"
@@ -52,7 +45,7 @@
                 android:layout_height="match_parent"
                 android:text="비밀번호  :"
                 android:gravity="center"
-                android:textSize="20dp" />
+                android:textSize="15dp" />
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -67,28 +60,19 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:layout_marginTop="10dp">
-
             <Button
                 android:layout_width="100dp"
                 android:layout_height="60dp"
                 android:gravity="center"
                 android:text="로그인"
                 android:id="@+id/bt_lg"/>
-
-
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="bottom"
+            android:gravity="top"
             android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="카톡로그인안됨!"/>
 
             <com.kakao.usermgmt.LoginButton
                 android:id="@+id/com_kakao_login"

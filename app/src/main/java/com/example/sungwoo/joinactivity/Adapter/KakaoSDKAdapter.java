@@ -1,6 +1,7 @@
 package com.example.sungwoo.joinactivity.Adapter;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.example.sungwoo.joinactivity.GlobalApplication;
 import com.kakao.auth.ApprovalType;
@@ -19,7 +20,7 @@ public class KakaoSDKAdapter extends KakaoAdapter {
         return new ISessionConfig() {
             @Override
             public AuthType[] getAuthTypes() {
-                return new AuthType[] {AuthType.KAKAO_TALK}; //여기서타입을 변경가능합니다~
+                return new AuthType[] {AuthType.KAKAO_ACCOUNT}; //여기서타입을 변경가능합니다~
             }
             // 로그인시 인증받을 타입을 지정한다. 지정하지 않을 시 가능한 모든 옵션이 지정된다.
 
@@ -65,9 +66,9 @@ public class KakaoSDKAdapter extends KakaoAdapter {
             // 현재 최상단에 위치하고 있는 Activity. topActivity가 아니거나 ApplicationContext를 넣는다면
             // SDK내에서의 Dialog Popup등이 동작하지 않을 수 있습니다.
 
-
             @Override
             public Context getApplicationContext() {
+                Log.e("kakao sdk adapter",""+GlobalApplication.getGlobalApplicationContext());
                 return GlobalApplication.getGlobalApplicationContext();
             }
         };
